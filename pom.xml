@@ -23,18 +23,14 @@
 			</connection> <developerConnection>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-1.0.0-SNAPSHOT 
 			</developerConnection> <url>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-1.0.0-SNAPSHOT</url> -->
 	</scm>
-
 	<distributionManagement>
 		<repository>
-			<id>lushlife.googlecode.releases</id>
-			<name>lushlife.googlecode.releases</name>
-			<url>dav:https://lushlife.googlecode.com/svn/maven2/</url>
+			<id>repo</id>
+			<url>http://github.com/takeshi/maven-repo/raw/master/release</url>
 		</repository>
 		<snapshotRepository>
-			<id>lushlife.googlecode.snapshots</id>
-			<name>lushlife.googlecode.snapshots</name>
-			<url>dav:https://lushlife.googlecode.com/svn/maven2-snapshots/
-			</url>
+			<id>snapshot-repo</id>
+			<url>http://github.com/takeshi/maven-repo/raw/master/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
