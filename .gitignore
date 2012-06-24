@@ -9,3 +9,5 @@ ehthumbs.db
 Thumbs.db
 pom.xml.releaseBackup
 release.properties
+bin/
+logs/

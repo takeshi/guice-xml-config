@@ -1,0 +1,13 @@
+<guiceXml xmlns:t="urn:import:test" xmlns:c="urn:import:common">
+
+	<c:SampleInterceptor name="sampleInterceptor" />
+
+	<interceptor-mapping interceptors="#{sampleInterceptor}"
+		target-class=".*Service" />
+
+	<component scope="singleton" class="datastore.MongoConnectionProvider"
+		name="mongoConnectionProvider" />
+
+	<factory type="com.mongodb.casbah.MongoConnection" value="#{mongoConnectionProvider.get()}" />
+
+</guiceXml>
