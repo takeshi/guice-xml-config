@@ -3,7 +3,7 @@
 
 	<groupId>org.lushlife.guicexml</groupId>
 	<artifactId>guice-xml</artifactId>
-	<version>0.6</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Goolge Guice XML configuration</name>
@@ -14,11 +14,11 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-0.6
+		<connection>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-1.0.0-SNAPSHOT
 		</connection>
-		<developerConnection>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-0.6
+		<developerConnection>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-1.0.0-SNAPSHOT
 		</developerConnection>
-		<url>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-0.6</url>
+		<url>scm:svn:https://guice-xml.googlecode.com/svn/tags/guice-xml-1.0.0-SNAPSHOT</url>
 	</scm>
 
 	<distributionManagement>
