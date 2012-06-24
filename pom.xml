@@ -26,18 +26,15 @@
 
 	<distributionManagement>
 		<repository>
-			<id>lushlife.googlecode.releases</id>
-			<name>lushlife.googlecode.releases</name>
-			<url>dav:https://lushlife.googlecode.com/svn/maven2/</url>
+			<id>repo</id>
+			<url>http://github.com/takeshi/maven-repo/raw/master/release</url>
 		</repository>
 		<snapshotRepository>
-			<id>lushlife.googlecode.snapshots</id>
-			<name>lushlife.googlecode.snapshots</name>
-			<url>dav:https://lushlife.googlecode.com/svn/maven2-snapshots/
-			</url>
+			<id>snapshot-repo</id>
+			<url>http://github.com/takeshis/maven-repo/raw/master/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-
+	
 	<repositories>
 		<repository>
 			<id>java net</id>
