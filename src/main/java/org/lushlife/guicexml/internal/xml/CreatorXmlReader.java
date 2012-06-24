@@ -55,6 +55,9 @@ public class CreatorXmlReader {
 			throw new IllegalArgumentException("illegal argumetns "
 					+ element.asXML());
 		}
+		if(type == null){
+			type = creator.getComponentType();
+		}
 
 		PropertyValue[] args = xmlManagement.toListPropertyValue(
 				element.attributeValue("args")).getValues();

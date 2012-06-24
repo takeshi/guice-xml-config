@@ -21,6 +21,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
@@ -337,15 +338,27 @@ public class PropertyManagement {
 		Class<T> clazz = toClass(clazzName);
 		String[] spt = factoryMethod.split("\\(");
 		String methodName = spt[0];
-		Type[] parameterTypes = toTypes(spt[1]
-				.substring(0, spt[1].length() - 1));
+		Type[] parameterTypes;
+		if (spt.length == 1) {
+			parameterTypes = new Type[0];
+		} else {
+			String parameterStrings = spt[1].substring(0, spt[1].length() - 1);
+			if (parameterStrings.length() == 0) {
+				parameterTypes = new Type[0];
+			} else {
+				parameterTypes = toTypes(parameterStrings);
+			}
+		}
 		Class<?>[] parameters = new Class<?>[parameterTypes.length];
 		for (int i = 0; i < parameters.length; i++) {
 			parameters[i] = toRawType(parameterTypes[i]);
 		}
 		try {
-			return new Producer.FactoryMethodProducer<T>(clazz.getMethod(
-					methodName, parameters));
+			Method method = clazz.getMethod(methodName, parameters);
+			if ((method.getModifiers() | Modifier.STATIC) != 0) {
+				throw new IllegalArgumentException(method + " is not static.");
+			}
+			return new Producer.FactoryMethodProducer<T>(method);
 		} catch (Exception e) {
 			// TODO error handling
 			throw new RuntimeException(e);
@@ -360,8 +373,8 @@ public class PropertyManagement {
 			parameters[i] = toRawType(parameterTypes[i]);
 		}
 		try {
-			return new Producer.ConstructorProducer<T>(clazz
-					.getConstructor(parameters));
+			return new Producer.ConstructorProducer<T>(
+					clazz.getConstructor(parameters));
 		} catch (Exception e) {
 			// TODO error handling
 			throw new RuntimeException(e);
