@@ -1,0 +1,56 @@
+<guiceXml xmlns:t="urn:import:test"
+	xmlns:g="http://code.google.com/p/lushlife/guice-xml/test">
+
+	<t:sample-component scope="application" value2="#{bb}">
+		<a>
+			1,2,3
+		</a>
+		<b>
+			<value>
+				aa
+			</value>
+			<value>
+				bb
+			</value>
+		</b>
+		<c>
+			<key>
+				aa
+			</key>
+			<value>
+				bb
+			</value>
+			<key>
+				cc
+			</key>
+			<value>
+				bb
+			</value>
+		</c>
+		<value>
+			#{com2}
+		</value>
+
+		<property name="value3" value="#{bb}" />
+
+	</t:sample-component>
+
+	<g:com2 name="com2" scope="@com.google.inject.Singleton" />
+
+	<factory name="bb" value="#{com2}" scope="singleton" />
+
+	<component class="test.SysoutInterceptor" name="intercept1" />
+
+	<component class="test.SysoutInterceptor" name="intercept2"
+		message="invocations ${invocationContext.method}" startup="true" />
+
+	<interceptor-mapping interceptors="#{intercept1}"
+		target-class="test\..*" />
+
+	<interceptor-mapping target-class="test\..*">
+		<interceptors>
+			<value>#{intercept2}</value>
+		</interceptors>
+	</interceptor-mapping>
+
+</guiceXml>

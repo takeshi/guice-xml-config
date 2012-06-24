@@ -1,0 +1,15 @@
+
+<!-- name-space prefix 'h' bind to example.hoge package -->
+<bean xmlns:h="urn:import:example.hoge">
+
+	<!-- 
+		example.hoge.Foo class.
+	 -->
+	<h:Foo id="foo" message="hi" />
+
+	<!--  
+		inject Foo instance to examle.hoge.Hoge's foo property.
+	-->
+	<h:Hoge foo="#{foo}" />
+
+</bean>
