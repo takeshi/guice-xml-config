@@ -26,11 +26,11 @@
 	<distributionManagement>
 		<repository>
 			<id>repo</id>
-			<url>dav:http://raw.github.com/takeshi/maven-repo/master/release</url>
+			<url>https://raw.github.com/takeshi/maven-repo/master/release</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot-repo</id>
-			<url>dav:http://raw.github.com/takeshi/maven-repo/master/snapshot</url>
+			<url>https://raw.github.com/takeshi/maven-repo/master/snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
 
