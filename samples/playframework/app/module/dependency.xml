@@ -1,13 +1,18 @@
 <guiceXml xmlns:t="urn:import:test" xmlns:c="urn:import:common">
 
-	<c:SampleInterceptor name="sampleInterceptor" />
+	<c:TraceInterceptor name="traceInterceptor" />
 
-	<interceptor-mapping interceptors="#{sampleInterceptor}"
+	<interceptor-mapping interceptors="#{traceInterceptor}"
 		target-class=".*Service" />
 
 	<component scope="singleton" class="datastore.MongoConnectionProvider"
 		name="mongoConnectionProvider" />
 
-	<factory type="com.mongodb.casbah.MongoConnection" value="#{mongoConnectionProvider.get()}" />
+	<factory type="com.mongodb.casbah.MongoConnection" value="#{mongoConnectionProvider.connection()}" />
+
+	<component scope="singleton" class="datastore.RedisClientManager"
+		name="redisClientManager" />
+
+	<factory type="com.redis.RedisClientPool" value="#{redisClientManager.clientPool()}" />
 
 </guiceXml>

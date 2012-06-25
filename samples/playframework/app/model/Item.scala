@@ -1,3 +1,3 @@
 package model
 
-class Item(var name: String, var value: String) 
+case class Item(id: Int, name: String, age: Int)

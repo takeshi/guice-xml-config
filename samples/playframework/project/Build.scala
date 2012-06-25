@@ -11,7 +11,7 @@ object ApplicationBuild extends Build {
     "com.typesafe" % "play-plugins-guice" % "2.0.2",
     "org.lushlife.guicexml" % "guice-xml" % "1.40",
     "org.slf4j" % "slf4j-api" % "1.6.6",
-
+    "net.debasishg" % "redisclient_2.9.1" % "2.5",
     "com.novus" %% "salat-core" % "0.0.8-SNAPSHOT")
 
   val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(

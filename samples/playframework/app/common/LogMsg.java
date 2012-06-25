@@ -2,7 +2,7 @@ package common;
 
 import org.lushlife.stla.Info;
 
-public enum LogMessage {
+public enum LogMsg {
 
 	@Info("in {0}")
 	IN,
